@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<title>متجر الأهواز</title>
+<style>
+:root{--bg:#0b0b0d;--panel:#151518;--panel2:#1c1c20;--gold:#e7b84b;--gold2:#ffdc82;--text:#f7f4ec;--muted:#aaa7a0;--line:#34312a;--danger:#ff7777}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top,#211b0d 0,#0b0b0d 38rem);color:var(--text);font-family:Tahoma,Arial,sans-serif}a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b0b0df2;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0;flex-wrap:wrap}.brand{font-size:1.35rem;font-weight:900}.brand span{color:var(--gold)}.sub{font-size:.78rem;color:var(--muted);margin-top:5px}
+nav{display:flex;gap:8px;flex-wrap:wrap}nav a,.pill{font-size:.9rem;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:#161619}
+nav a:hover,.pill:hover{border-color:var(--gold);color:var(--gold2)}
+.hero{padding:64px 0 40px;text-align:center}.badge{display:inline-block;border:1px solid #6c5422;background:#201a0b;color:var(--gold2);border-radius:999px;padding:7px 13px;font-size:.85rem}
+h1{font-size:clamp(2rem,6vw,3.7rem);margin:18px 0 12px;line-height:1.25}.gold{color:var(--gold)}.hero p{max-width:660px;margin:0 auto;color:var(--muted);line-height:2}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}.btn{border:0;border-radius:12px;padding:12px 17px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#17130a;font-weight:800;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn.secondary{background:#202024;color:var(--text);border:1px solid var(--line)}.btn.small{padding:9px 12px;font-size:.88rem}.btn:disabled{opacity:.45;cursor:not-allowed}
+section{padding:28px 0 42px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}h2{margin:0 0 6px;font-size:1.6rem}.hint{color:var(--muted);font-size:.9rem;line-height:1.7}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}.tools input,.tools select,.field input,.field textarea,.field select{background:#111114;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;min-width:0}.tools input{flex:1;min-width:170px}.tools select{width:170px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.card{background:linear-gradient(160deg,#19191d,#111114);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}.product-art{height:150px;display:grid;place-items:center;font-size:3.4rem;background:radial-gradient(circle at 50% 30%,#4b3916,#1a1710 55%,#121214);border-bottom:1px solid var(--line)}.product-info{padding:15px}.product-info h3{margin:0 0 8px}.product-info p{color:var(--muted);font-size:.9rem;line-height:1.7;min-height:44px}.price{color:var(--gold2);font-weight:900;font-size:1.1rem}.product-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.heart{position:absolute;top:10px;left:10px;border:1px solid #62502a;background:#15130fe8;color:var(--gold2);border-radius:50%;width:38px;height:38px;font-size:1.15rem;cursor:pointer}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.info{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.info .icon{font-size:1.7rem}.info h3{margin:10px 0}.info p{color:var(--muted);line-height:1.8;margin:0}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);text-align:center;font-size:.88rem}
+.overlay{display:none;position:fixed;inset:0;z-index:30;background:#000b;padding:18px;overflow:auto;align-items:center;justify-content:center}.overlay.open{display:flex}.modal{width:min(600px,100%);background:#151518;border:1px solid #5a4822;border-radius:18px;padding:20px;max-height:92vh;overflow:auto}.modal-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.close{border:1px solid var(--line);background:#222;color:white;border-radius:9px;padding:7px 11px;cursor:pointer}.field{display:grid;gap:7px;margin:13px 0}.field label{font-size:.9rem;color:#ded8c9}.field input,.field textarea{width:100%}.field textarea{min-height:80px;resize:vertical}.notice{padding:12px;border-radius:11px;background:#201a0b;border:1px solid #6c5422;color:#f1d998;line-height:1.8;font-size:.88rem;margin:12px 0}.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.cart-row small{display:block;color:var(--muted);margin-top:5px}.qty{display:flex;align-items:center;gap:8px}.qty button{background:#28282d;color:white;border:1px solid var(--line);border-radius:7px;padding:5px 9px;cursor:pointer}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+@media(max-width:600px){.head{align-items:flex-start}.hero{padding-top:42px}nav{width:100%}nav a{font-size:.82rem}.section-head{align-items:flex-start}.tools select{flex:1}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap head">
+  <div><div class="brand">متجر <span>الأهواز</span> ✦</div><div class="sub">اختيارات مميزة • تجربة شراء سهلة</div></div>
+  <nav><a href="#home">الرئيسية</a><a href="#products">المنتجات</a><a href="#services">مميزاتنا</a><a href="#contact">تواصل</a><button class="pill" onclick="openCart()">🛒 السلة (<span id="cartCount">0</span>)</button></nav>
+ </div>
+</header>
+<main class="wrap">
+ <section class="hero" id="home">
+  <span class="badge">✦ أهلاً بكم في متجر الأهواز ✦</span>
+  <h1>تسوّق براحة،<br><span class="gold">واختر ما يناسبك</span></h1>
+  <p>متجر للأغراض والمنتجات المتنوعة. تصفّح المنتجات، أضف ما يعجبك إلى السلة أو المفضلة، ثم أرسل طلبك عبر تلغرام أو اختر التحويل البنكي بعد تأكيد تفاصيل الدفع مع إدارة المتجر.</p>
+  <div class="actions"><a class="btn" href="#products">تسوّق الآن ←</a><a class="btn secondary" href="https://t.me/UI_TRFi" target="_blank" rel="noopener">تواصل عبر تلغرام</a></div>
+ </section>
+ <section id="products">
+  <div class="section-head"><div><h2>منتجات المتجر</h2><div class="hint">الأسعار تجريبية حالياً ويمكنك تعديلها داخل الكود.</div></div><button class="btn secondary small" onclick="showFavorites()">♥ المفضلة (<span id="favCount">0</span>)</button></div>
+  <div class="tools"><input id="search" placeholder="ابحث عن منتج..." oninput="renderProducts()"><select id="category" onchange="renderProducts()"><option value="all">كل الأقسام</option><option value="home">المنزل</option><option value="tech">إلكترونيات</option><option value="fashion">إكسسوارات</option></select><button class="btn secondary small" onclick="resetFilters()">عرض الكل</button></div>
+  <div class="grid" id="productsGrid"></div>
+ </section>
+ <section id="services">
+  <div class="section-head"><div><h2>مميزات متجر الأهواز</h2><div class="hint">كل ما تحتاجه لتجربة تسوّق واضحة وسهلة.</div></div></div>
+  <div class="info-grid">
+   <article class="info"><div class="icon">🛒</div><h3>سلة ومفضلة</h3><p>احتفظ بالمنتجات التي تعجبك، وراجع طلبك قبل الإرسال.</p></article>
+   <article class="info"><div class="icon">📩</div><h3>الطلب عبر تلغرام</h3><p>جهّز رسالة تحتوي على المنتجات والكميات وأرسلها إلى صاحب المتجر.</p></article>
+   <article class="info"><div class="icon">🏦</div><h3>تحويل بالتومان</h3><p>يمكن ترتيب الدفع بالتحويل البنكي الإيراني بعد تأكيد الطلب ومعلومات الحساب مع الإدارة.</p></article>
+   <article class="info"><div class="icon">🔒</div><h3>دفع أكثر أماناً</h3><p>لا ترسل كلمات المرور أو رمز التحقق أو بيانات بطاقتك داخل رسائل الطلب.</p></article>
+  </div>
+ </section>
+ <section id="contact">
+  <div class="section-head"><div><h2>تواصل معنا</h2><div class="hint">للسؤال عن المنتجات أو تأكيد تفاصيل الدفع.</div></div></div>
+  <div class="card" style="padding:20px"><p class="hint">تلغرام المتجر: <strong class="gold">@UI_TRFi</strong></p><a class="btn" href="https://t.me/UI_TRFi" target="_blank" rel="noopener">فتح محادثة تلغرام</a></div>
+ </section>
+</main>
+<footer><div class="wrap">© <span id="year"></span> متجر الأهواز — جميع الحقوق محفوظة</div></footer>
+
+<div class="overlay" id="cartModal" role="dialog" aria-modal="true" aria-label="سلة المشتريات"><div class="modal">
+ <div class="modal-top"><h2>🛒 سلة المشتريات</h2><button class="close" onclick="closeModal('cartModal')">إغلاق ✕</button></div>
+ <div id="cartItems"></div><div class="cart-row"><strong>المجموع</strong><strong class="price" id="cartTotal">0 تومان</strong></div>
+ <div class="field"><label for="customerName">اسمك</label><input id="customerName" placeholder="الاسم (اختياري)"></div>
+ <div class="field"><label for="customerNote">ملاحظات الطلب</label><textarea id="customerNote" placeholder="المدينة أو تفاصيل المنتج..."></textarea></div>
+ <div class="actions" style="justify-content:flex-start"><button class="btn" onclick="sendTelegramOrder()">إرسال الطلب عبر تلغرام</button><button class="btn secondary" onclick="openPayment()">طلب مع تحويل بنكي</button></div>
+ <div class="notice">تنبيه: هذا النموذج يجهّز رسالة الطلب فقط. لا يتم تحصيل المال أو حفظ الطلبات على خادم في هذه النسخة.</div>
+</div></div>
+
+<div class="overlay" id="paymentModal" role="dialog" aria-modal="true" aria-label="التحويل البنكي"><div class="modal">
+ <div class="modal-top"><h2>🏦 الدفع بالتحويل البنكي</h2><button class="close" onclick="closeModal('paymentModal')">إغلاق ✕</button></div>
+ <div class="notice">قبل التحويل، تواصل مع إدارة المتجر لتأكيد المبلغ وتفاصيل الحساب البنكي. لم تُضف بيانات بنك بعد، لذلك لن نعرض أرقاماً غير صحيحة.</div>
+ <div class="field"><label>بيانات الدفع</label><textarea readonly>يرجى مراسلة @UI_TRFi على تلغرام لتأكيد المبلغ ومعلومات التحويل البنكي بالتومان.</textarea></div>
+ <div class="field"><label>إيصال التحويل</label><p class="hint">بعد التحويل، أرسل صورة الإيصال بنفسك في محادثة تلغرام. رفع الإيصال تلقائياً يحتاج خادماً آمناً غير موجود في GitHub Pages.</p></div>
+ <button class="btn" onclick="sendTelegramOrder('أرغب بالدفع بالتحويل البنكي، وأحتاج تأكيد بيانات الحساب.');">إرسال تفاصيل الطلب وطلب بيانات التحويل</button>
+ <p class="hint" style="margin-top:12px">لا ترفع إيصالاً يحتوي على معلومات غير ضرورية، ولا تشارك رمز التحقق أو كلمة مرور البنك.</p>
+</div></div>
+
+<script>
+const products = [
+ {id:1,name:"مصباح ديكوري",category:"home",price:350000,icon:"💡",desc:"إضاءة أنيقة للغرفة أو المكتب."},
+ {id:2,name:"سماعة لاسلكية",category:"tech",price:890000,icon:"🎧",desc:"سماعة للاستخدام اليومي والترفيه."},
+ {id:3,name:"ساعة أنيقة",category:"fashion",price:1250000,icon:"⌚",desc:"تصميم بسيط يناسب الاستخدام اليومي."},
+ {id:4,name:"كوب حراري",category:"home",price:280000,icon:"☕",desc:"كوب عملي للمشروبات الساخنة والباردة."},
+ {id:5,name:"شاحن سريع",category:"tech",price:420000,icon:"🔌",desc:"ملحق شحن؛ تحقق من التوافق قبل الشراء."},
+ {id:6,name:"حقيبة يومية",category:"fashion",price:760000,icon:"🎒",desc:"حقيبة عملية للأغراض اليومية."}
+];
+let cart = JSON.parse(localStorage.getItem("ahwazCart")||"[]");
+let favorites = JSON.parse(localStorage.getItem("ahwazFav")||"[]");
+let onlyFavorites = false;
+const money = n => new Intl.NumberFormat("fa-IR").format(n) + " تومان";
+function save(){localStorage.setItem("ahwazCart",JSON.stringify(cart));localStorage.setItem("ahwazFav",JSON.stringify(favorites));updateCounts();}
+function updateCounts(){document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById("favCount").textContent=favorites.length;}
+function renderProducts(){
+ const q=document.getElementById("search").value.trim().toLowerCase(),cat=document.getElementById("category").value;
+ const list=products.filter(p=>(!onlyFavorites||favorites.includes(p.id))&&(cat==="all"||p.category===cat)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));
+ const grid=document.getElementById("productsGrid");
+ if(!list.length){grid.innerHTML='<div class="empty">ماكو منتجات تطابق البحث حالياً.</div>';return;}
+ grid.innerHTML=list.map(p=>`<article class="card"><button class="heart" aria-label="إضافة للمفضلة" onclick="toggleFav(${p.id})">${favorites.includes(p.id)?"♥":"♡"}</button><div class="product-art">${p.icon}</div><div class="product-info"><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${money(p.price)}</div><div class="product-actions"><button class="btn small" onclick="addToCart(${p.id})">أضف للسلة +</button><button class="btn secondary small" onclick="quickOrder(${p.id})">اطلبه</button></div></div></article>`).join("");
+}
+function addToCart(id){const item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({id,qty:1});save();renderProducts();alert("انضاف المنتج للسلة.");}
+function quickOrder(id){addToCart(id);openCart();}
+function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];save();renderProducts();}
+function showFavorites(){onlyFavorites=!onlyFavorites;document.querySelector("#products .section-head .btn").textContent=onlyFavorites?"عرض كل المنتجات":"♥ المفضلة ("+favorites.length+")";renderProducts();document.getElementById("products").scrollIntoView();}
+function resetFilters(){onlyFavorites=false;document.getElementById("search").value="";document.getElementById("category").value="all";document.querySelector("#products .section-head .btn").textContent="♥ المفضلة ("+favorites.length+")";renderProducts();}
+function openCart(){renderCart();document.getElementById("cartModal").classList.add("open");}
+function closeModal(id){document.getElementById(id).classList.remove("open");}
+function renderCart(){
+ const box=document.getElementById("cartItems");
+ if(!cart.length)box.innerHTML='<div class="empty">السلة فارغة. أضف منتجاً أولاً.</div>';
+ else box.innerHTML=cart.map(x=>{const p=products.find(p=>p.id===x.id);return `<div class="cart-row"><div><strong>${p.name}</strong><small>${money(p.price)} للقطعة</small></div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${x.qty}</span><button onclick="changeQty(${p.id},1)">+</button><button class="close" onclick="removeItem(${p.id})">حذف</button></div></div>`}).join("");
+ document.getElementById("cartTotal").textContent=money(cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0));
+}
+function changeQty(id,n){const x=cart.find(x=>x.id===id);if(x)x.qty+=n;cart=cart.filter(x=>x.qty>0);save();renderCart();}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);save();renderCart();}
+function orderText(extra=""){
+ if(!cart.length){alert("السلة فارغة. أضف منتجاً أولاً.");return "";}
+ const name=document.getElementById("customerName").value.trim()||"غير محدد";
+ const note=document.getElementById("customerNote").value.trim()||"لا توجد";
+ const lines=cart.map(x=>{const p=products.find(p=>p.id===x.id);return `• ${p.name} × ${x.qty} = ${money(p.price*x.qty)}`;}).join("\n");
+ const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+ return `السلام عليكم، أريد الطلب من متجر الأهواز:\n${lines}\nالمجموع: ${money(total)}\nالاسم: ${name}\nملاحظات: ${note}\n${extra}\nيرجى تأكيد توفر المنتجات والمبلغ النهائي.`;
+}
+function sendTelegramOrder(extra=""){const msg=orderText(extra);if(!msg)return;window.open("https://t.me/UI_TRFi?text="+encodeURIComponent(msg),"_blank","noopener");}
+function openPayment(){if(!cart.length){alert("السلة فارغة. أضف منتجاً أولاً.");return;}closeModal("cartModal");document.getElementById("paymentModal").classList.add("open");}
+document.querySelectorAll(".overlay").forEach(el=>el.addEventListener("click",e=>{if(e.target===el)el.classList.remove("open")}));
+document.getElementById("year").textContent=new Date().getFullYear();updateCounts();renderProducts();
+</script>
+</body>
+</html>
